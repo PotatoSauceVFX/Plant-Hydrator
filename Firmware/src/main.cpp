@@ -130,7 +130,12 @@ void loop()
 {
 	//printCurrentLocalTime();
 	struct tm datetime = getCurrentLocalTime();
-	Serial.println(&datetime, dateTimeFormat);
+	
+
+	char timeStr[32];
+
+	strftime(timeStr, 32, dateTimeFormat, &datetime);
+	Serial.println(timeStr);
 
 	delay(1000);
 }
