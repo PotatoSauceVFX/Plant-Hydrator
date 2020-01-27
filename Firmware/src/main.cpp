@@ -1,10 +1,23 @@
 #include <Arduino.h>
 #include <WiFi.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
 #include "time.h"
 
-const char *ssid = "Pluto";
+// Pin definitions
+#define PIN_LED 2
+
+// WiFi settings
+const char *ssid = "Sudo Pluto";
 const char *password = "10200330";
 
+// MQTT Settings
+const char *mqtt_server = "0.0.0.0";
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+// Time settings
 const char *ntpServer = "pool.ntp.org";
 const int gmtOffset_hour = -5;
 const int daylightOffset_hour = 1;
@@ -37,8 +50,15 @@ const char *dateTimeFormat = "%b %d %Y %I:%M:%S %p";
   You can suppress the display of leading zeroes  by using the "#" character  (%#d, %#H, %#I, %#j, %#m, %#M, %#S, %#U, %#w, %#W, %#y, %#Y)
 */
 
+void setup_local_time()
+{
+	//init and get the time
+	Serial.println("Getting local time... ");
+	configTime(gmtOffset_hour * 3600, daylightOffset_hour * 3600, ntpServer);
+	Serial.println("Local time configured!");
+}
 
-void printLocalTime()
+void printCurrentLocalTime()
 {
 	struct tm timeinfo;
 
@@ -51,46 +71,66 @@ void printLocalTime()
 	Serial.println(&timeinfo, dateTimeFormat);
 }
 
-void setup()
+struct tm getCurrentLocalTime()
 {
-	Serial.begin(115200);
+	struct tm datetime;
+	if (!getLocalTime(&datetime))
+	{
+		Serial.println("Failed to obtain time");
+	}
 
-	pinMode(2, OUTPUT);
+	return datetime;
+}
 
-	//connect to WiFi
-	Serial.printf("Connecting to %s ", ssid);
-	WiFi.mode(WIFI_STA);
+void setup_wifi()
+{
+	delay(10);
+	// We start by connecting to a WiFi network
+	Serial.println();
+	Serial.print("Connecting to ");
+	Serial.println(ssid);
+
+	unsigned long wifiBeginTime = millis();
 	WiFi.begin(ssid, password);
+
 	while (WiFi.status() != WL_CONNECTED)
 	{
 		delay(500);
 		Serial.print(".");
+
+		if (millis() - wifiBeginTime > 10000)
+		{
+			Serial.println("\nWiFi Connect Failed, restarting in 3 seconds...");
+			delay(3000);
+			ESP.restart();
+		}
 	}
-	Serial.println(" CONNECTED");
 
-	//init and get the time
-	configTime(gmtOffset_hour * 3600, daylightOffset_hour * 3600, ntpServer);
-	//printLocalTime();
-
-	//disconnect WiFi as it's no longer needed
-	//WiFi.disconnect(true);
-	//WiFi.mode(WIFI_OFF);
+	Serial.println("");
+	Serial.println("WiFi connected");
+	Serial.println("IP address: ");
+	Serial.println(WiFi.localIP());
 }
 
+void setup()
+{
+	Serial.begin(115200);
 
-unsigned long last_time_update = millis();
-bool ledState = false;
+	// LED Pin
+	pinMode(PIN_LED, OUTPUT);
+
+	// Connect to WiFi
+	setup_wifi();
+
+	// Init time
+	setup_local_time();
+}
+
 void loop()
 {
-	if(millis() - last_time_update > 1000)
-	{
-		digitalWrite(2, ledState);
+	//printCurrentLocalTime();
+	struct tm datetime = getCurrentLocalTime();
+	Serial.println(&datetime, dateTimeFormat);
 
-		printLocalTime();
-		last_time_update = millis();
-		ledState = !ledState;
-	}
-
-
-
+	delay(1000);
 }
