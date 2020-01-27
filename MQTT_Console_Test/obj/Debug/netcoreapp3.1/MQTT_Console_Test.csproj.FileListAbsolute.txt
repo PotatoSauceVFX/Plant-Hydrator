@@ -1,0 +1,15 @@
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTT_Console_Test.exe
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\privatekey.pem
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\publickey.cer
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\public_privatekey.pfx
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTT_Console_Test.deps.json
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTT_Console_Test.runtimeconfig.json
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTT_Console_Test.runtimeconfig.dev.json
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTT_Console_Test.dll
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTT_Console_Test.pdb
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\bin\Debug\netcoreapp3.1\MQTTnet.dll
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.AssemblyInfoInputs.cache
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.AssemblyInfo.cs
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.csproj.CopyComplete
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.dll
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.pdb

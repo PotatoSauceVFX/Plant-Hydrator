@@ -1,0 +1,9 @@
+I don't include cert files in this public repo.
+
+You can gen these using these three commands:
+openssl genrsa -out privatekey.pem 1024
+openssl req -new -x509 -key privatekey.pem -out publickey.cer -days 1825
+openssl pkcs12 -export -out public_privatekey.pfx -inkey privatekey.pem -in publickey.cer
+
+Once the files are generated add the contents of privatekey.pem to the
+ESP32 firmware via the KEY variable and the contents of the publickey.cer to the CERT variable.
