@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantHydratorAPI", "PlantHydratorAPI.csproj", "{DD73F22F-AF1C-4623-91DF-AE559C0FE61E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD73F22F-AF1C-4623-91DF-AE559C0FE61E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD73F22F-AF1C-4623-91DF-AE559C0FE61E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD73F22F-AF1C-4623-91DF-AE559C0FE61E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD73F22F-AF1C-4623-91DF-AE559C0FE61E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E03307D-15E5-40EA-A8AC-ED2D6612D569}
+	EndGlobalSection
+EndGlobal
