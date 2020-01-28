@@ -64,11 +64,11 @@ namespace MQTT_Console_Test
 
         private void ValidateConnections(MqttConnectionValidatorContext context)
         {
-            if (context.ClientId.Length < 10)
+            if (context.ClientId.Equals("Server", StringComparison.OrdinalIgnoreCase))
             {
                 context.ReasonCode = MqttConnectReasonCode.ClientIdentifierNotValid;
 
-                Console.WriteLine($"{context.ClientId} failed to authenticate with too short of a username \"{context.Username}\".");
+                Console.WriteLine($"{context.ClientId} failed to authenticate with username \"{context.Username}\".");
 
                 return;
             }
@@ -100,7 +100,7 @@ namespace MQTT_Console_Test
             var payloadString = Encoding.UTF8.GetString(context.ApplicationMessage.Payload);
 
             Console.WriteLine(
-                $"Message recived from {context.ClientId}: {data.Topic} {payloadString}"
+                $"{context.ClientId}: {data.Topic} {payloadString}"
             );
         }
 

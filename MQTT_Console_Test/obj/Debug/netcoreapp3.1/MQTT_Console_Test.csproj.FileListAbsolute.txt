@@ -13,3 +13,4 @@ C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1
 C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.csproj.CopyComplete
 C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.dll
 C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.pdb
+C:\Users\RJ\gitPersonal\Plant-Hydrator\MQTT_Console_Test\obj\Debug\netcoreapp3.1\MQTT_Console_Test.csprojAssemblyReference.cache
