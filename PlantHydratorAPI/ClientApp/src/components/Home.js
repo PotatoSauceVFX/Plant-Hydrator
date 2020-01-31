@@ -8,6 +8,7 @@ export class Home extends Component {
             <div>
                 <h1>Hello, world!</h1>
                 <h2>Test</h2>
+
                 <p>AAAAAAAAAAAA</p>
                 <p>Welcome to your new single-page application, built with:</p>
                 <ul>
