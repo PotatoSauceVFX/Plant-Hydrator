@@ -64,7 +64,8 @@ namespace PlantHydratorAPI
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
+                    //spa.UseReactDevelopmentServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:3000/");
                 }
             });
         }
