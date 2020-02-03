@@ -4,3 +4,7 @@ MQTT_Console_Test/.vs
 MQTT_Console_Test/privatekey.pem
 MQTT_Console_Test/public_privatekey.pfx
 MQTT_Console_Test/publickey.cer
+
+PlantHydratorAPI/privatekey.pem
+PlantHydratorAPI/public_privatekey.pfx
+PlantHydratorAPI/publickey.cer

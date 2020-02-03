@@ -5,10 +5,10 @@
 
 // MQTT Settings
 const char *mqtt_server = "192.168.137.1";
-const int mqtt_port = 4242;	// It's on a HTTPS web server now :)
+const int mqtt_port = 443;
 const char *mqtt_clientId = "Client-0";
-const char *mqtt_username = "Client-0";
-const char *mqtt_password = "ThisIsTheMostSecurePasswordYouHaveEverSeen";
+const char *mqtt_username = "SudoPluto";
+const char *mqtt_password = "sdfjdoiusfe";
 
 WiFiClientSecure espClient;
 PubSubClient client(espClient);
@@ -52,25 +52,21 @@ oVCu7pHovbN21LBwaUXsvYtgRiDio5cyPj352XMeJ8w=
 
 )======";
 
-void mqtt_callback(char *raw_topic, byte *raw_message, unsigned int length)
+void mqtt_callback(char *topic, byte *raw_message, unsigned int length)
 {
-	String message = String();
-	String topic = String(raw_topic);
+	String message;
+
+	String _topic = String(topic);
+
 	for (int i = 0; i < length; i++)
 	{
 		message += (char)raw_message[i];
 	}
 
-	// Serial.print("Message arrived on topic: ");
-	// Serial.print(topic);
-	// Serial.print(". Message: ");
-	// Serial.println(message);
-
-
-	if(topic == "Count")
-	{
-		onCountUpdate(message);
-	}
+	Serial.print("Message arrived on topic: ");
+	Serial.print(topic);
+	Serial.print(". Message: ");
+	Serial.println(message);
 }
 
 void setup_mqtt()
@@ -92,7 +88,7 @@ void reconnect_mqtt()
 		{
 			Serial.println("Connected!");
 			// Subscribe
-			client.subscribe("Count");	// Subscribe to the count update channel
+			//client.subscribe("esp32/output");
 		}
 		else
 		{

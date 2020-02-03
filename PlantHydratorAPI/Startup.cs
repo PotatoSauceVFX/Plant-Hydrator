@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PlantHydratorAPI.Services;
+using System;
 
 namespace PlantHydratorAPI
 {
@@ -28,10 +30,12 @@ namespace PlantHydratorAPI
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddSingleton<MqttService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -68,6 +72,9 @@ namespace PlantHydratorAPI
                     spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:3000/");
                 }
             });
+
+            // I forget why I put this here, but I am guessing it is important
+            serviceProvider.GetRequiredService<MqttService>();
         }
     }
 }
